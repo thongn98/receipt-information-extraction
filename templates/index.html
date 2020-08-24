@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--***********************************************************
+    * Import section: CSS normalization
+    ************************************************************-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+    <!--***********************************************************
+    * Import section: CSS materialization
+    ************************************************************-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!--***********************************************************
+    * Import section: FONT material icons
+    ************************************************************-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!--***********************************************************
+    * Import section: CUSTOM stylesheet
+    ************************************************************-->
+    <link rel="stylesheet" href="templates/custom.css">
+    <title>Receipt Understanding</title>
+</head>
+<body>
+    <form action="/input/create" id="form_input_create" method="POST" enctype="multipart/form-data">
+    </form>
+    <form action="/action/save" id="form_action_save" method="POST" enctype="multipart/form-data">
+    </form>
+
+    <!--***********************************************************
+    * Content section: navbar
+    ************************************************************-->
+    <nav class="nav-wrapper light-blue darken-3">
+        <div class="container container_head valign-wrapper">
+            <img class="navbar_icon" src="templates/icon_bucket.svg">
+            <a class="text_title_primary white-text" href="/">Receipt Information Extractor</a>
+        </div>
+    </nav>
+
+    <!--***********************************************************
+    * Content section: container
+    ************************************************************-->
+    <div class="container container_body">
+        <div class="row"></div>
+
+        <!--***********************************************************
+        * Content section: modal create
+        ************************************************************-->
+        <div id="modal_create_id" class="modal modal_create_body">
+            <div class="modal-content light-blue darken-3 valign-wrapper">
+                <span class="modal_create_icon material-icons">create</span>
+                <span class="modal_create_text">Create Input</span>
+            </div>
+            <div class="general_hr"></div>
+            <div class="modal-content">
+                <div class="col s12 input-field">
+                    <input id="create_input_name_id" name="bucket_id" form="form_input_create" type="text" placeholder="Name">
+                </div>
+                <div class="col s12 right-align">
+                    <button class="waves-effect waves-light btn-large general_button_primary" form="form_input_create" type="submit">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!--***********************************************************
+        * Content section: prompt success
+        ************************************************************-->
+        {% if prompt_success %}
+        <div id="prompt_success" class="row">
+            <div class="col s12">
+                <div class="card-panel prompt_success_card valign-wrapper z-depth-0">
+                    <span class="prompt_success_icon material-icons">check</span>
+                    <span class="prompt_success_text">{{ prompt_success }}</span>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!--***********************************************************
+        * Content section: prompt failure
+        ************************************************************-->
+        {% if prompt_failure %}
+        <div id="prompt_failure" class="row">
+            <div class="col s12">
+                <div class="card-panel prompt_failure_card valign-wrapper z-depth-0">
+                    <span class="prompt_failure_icon material-icons">warning</span>
+                    <span class="prompt_failure_text">{{ prompt_failure }}</span>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!--***********************************************************
+        * Content section: input credential (default)
+        ************************************************************-->
+        <div class="row">
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content grey lighten-3">
+                        <div class="row input_credential_row valign-wrapper">
+                            <div class="col s12 valign-wrapper">
+                                <span class="text_title_secondary grey-text text-darken-3">Batch Input</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="general_hr"></div>
+                    <div class="card-content">
+                        <div class="row input_credential_row">
+                            <div class="col s12 input-field file-field">
+                                <div class="btn right">
+                                    <span>Select</span>
+                                    <input id="input_default_json_id" name="box_file" form="form_action_save" type="file" accept=".txt">
+                                </div>
+                                <div class="file-path-wrapper input_credential_file">
+                                    <input class="file-path" type="text" placeholder="File">
+                                </div>
+                            </div>
+                            <div class="col s12 input-field">
+                                <input id="input_default_access_id" name="sheet_name" form="form_action_save" type="text" placeholder="Sheet Name" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="col s12 right-align">
+                <button class="waves-effect waves-light btn-large general_button_primary" form="form_action_save" type="submit">
+                    <i class="material-icons left">save</i>Extract
+                </button>
+            </div>
+            {% if sheet_ready %}
+                <div id="prompt_success" class="row">
+                    <div class="card-content grey lighten-3">
+                        <div class="row input_credential_row valign-wrapper" style="margin-top:20px;">
+                            <div class="col s4 valign-wrapper">
+                                <span class="text_title_secondary grey-text text-darken-3">Sheet link:</span>
+                            </div>
+                            <div class="col s8 valign-wrapper">
+                                <a href="{{sheet_link}}" target="_blank">{{sheet_link}}</a>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!--***********************************************************
+    * Import section: JS materialization
+    ************************************************************-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!--***********************************************************
+    * Import section: JS jquery
+    ************************************************************-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!--***********************************************************
+    * Import section: CUSTOM javascript
+    ************************************************************-->
+    <script type="text/javascript" src="templates/custom.js"></script>
+</body>
+</html>

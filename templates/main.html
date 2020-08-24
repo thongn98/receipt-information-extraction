@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--***********************************************************
+    * Import section: CSS normalization
+    ************************************************************-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+    <!--***********************************************************
+    * Import section: CSS materialization
+    ************************************************************-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!--***********************************************************
+    * Import section: FONT material icons
+    ************************************************************-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!--***********************************************************
+    * Import section: CUSTOM stylesheet
+    ************************************************************-->
+    <link rel="stylesheet" href="templates/custom.css">
+    <title>Bucket Manager</title>
+</head>
+<body>
+    <!--***********************************************************
+    * Content section: navbar
+    ************************************************************-->
+    <nav class="nav-wrapper light-blue darken-3">
+        <div class="container container_head valign-wrapper">
+            <img class="navbar_icon" src="templates/icon_bucket.svg">
+            <a class="text_title_primary white-text" href="/">Bucket Manager</a>
+        </div>
+    </nav>
+    <div class="container container_body">
+        <!--***********************************************************
+        * Content section: overview
+        ************************************************************-->
+        <div class="row">
+            <div class="col s3">
+                <div class="card">
+                    <div class="card-content grey lighten-3 valign-wrapper">
+                        <img class="overview_icon" src="templates/icon_heart.svg">
+                        <span class="text_title_secondary grey-text text-darken-3">Total Images Compressed</span>
+                    </div>
+                    <div class="general_hr"></div>
+                    <div class="card-content center-align overview_text">
+                        <span id="overview_status" class="text_info_primary black-text">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s3">
+                <div class="card">
+                    <div class="card-content grey lighten-3 valign-wrapper">
+                        <img class="overview_icon" src="templates/icon_picture.svg">
+                        <span class="text_title_secondary grey-text text-darken-3">Total Image Weight</span>
+                    </div>
+                    <div class="general_hr"></div>
+                    <div class="card-content center-align overview_text">
+                        <span id="overview_queued" class="text_info_primary black-text">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s3">
+                <div class="card">
+                    <div class="card-content grey lighten-3 valign-wrapper">
+                        <img class="overview_icon" src="templates/icon_arrows.svg">
+                        <span class="text_title_secondary grey-text text-darken-3">Storage Saved</span>
+                    </div>
+                    <div class="general_hr"></div>
+                    <div class="card-content center-align overview_text">
+                        <span id="overview_rate" class="text_info_primary black-text">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s3">
+                <div class="card">
+                    <div class="card-content grey lighten-3 valign-wrapper">
+                        <img class="overview_icon" src="templates/icon_clock.svg">
+                        <span class="text_title_secondary grey-text text-darken-3">Task in Progress</span>
+                    </div>
+                    <div class="general_hr"></div>
+                    <div class="card-content center-align overview_text">
+                        <span id="overview_eta" class="text_info_primary black-text">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 right-align">
+                <a class="modal-trigger waves-effect waves-light btn-large general_button_secondary" href="/task"><i class="material-icons left">create</i>Task Settings</a>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
