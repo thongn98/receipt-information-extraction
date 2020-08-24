@@ -50,7 +50,7 @@ This repository also contains a simple flask application to demonstrate the powe
 1. Clone this repository
 
 ```
-git clone https://github.com/thongn98/document-info-extraction.git
+git clone https://github.com/thongn98/receipt-information-extraction.git
 ```
 2. Make a virtual environment and activate it
 
