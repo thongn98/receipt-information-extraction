@@ -89,6 +89,7 @@ mkdir model/
 ```
 python view.py
 ```
+When you first run this application, you will need to authorize this application to use Google Sheet API with your Google account. 
 
 This will open port 5000 on your local machine. You can try out the application out by going to `http://127.0.0.1:5000/` on your browser. You can use the `/data/test_image.txt` as the input with some sheet name to your choosing. The app will process the `.txt` file and give back the Google Sheet URL with the extracted information. The UI of this application looks like this
 
@@ -122,6 +123,6 @@ This file is responsible for defining all the flask application views
 
 This file is responsible for preprocessing the original data into `.txt` file for the model to train/predict
 
-### [`template/`](/template/)
+### [`templates/`](/templates/)
 
 This folder contains all the assets for the flask application
